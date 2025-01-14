@@ -13,13 +13,15 @@ fetch('data.json') // Replace 'data.json' with the path to your JSON file
 fetch('data.json')
     .then(response => response.json())
     .then(data => {
-        function addCustomer(name, email, length_of_stay, date_arrival) {
+        function addCustomer(name, email, length_of_stay, date_arrival, cash, room) {
             const newId = Object.keys(data.customers).length + 1;
             const newCustomer = {
                 name: name,
                 email: email,
                 length_of_stay: length_of_stay,
-                date_arrival: date_arrival
+                date_arrival: date_arrival,
+                cash: cash,
+                room: room
             };
             data.customers[newId] = newCustomer;
         }
