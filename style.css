@@ -1,0 +1,15 @@
+:root {
+    --bgcolor: #27374D;
+    --midcolor: #526D82;
+    --acccolor: #9DB2BF;
+    --wcolor: #DDE6ED;
+}
+
+#accommodation_name {
+    text-align: center;
+    font-size: 600%;
+    background-color: var(--bgcolor);
+    color: var(--wcolor);
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    padding: 2%;
+}
