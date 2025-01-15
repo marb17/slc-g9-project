@@ -4,30 +4,42 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Input New Customer</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div></div>
-        <head>New Customer</head>
+    <nav id="back-button-new-cus">
+        <a href="customer.html">Back</a>
+    </nav>
+    
+    <div class="new-cus-container">
+        <div class="heading-new-cus">New Customer</div>
         <div>
-            <label for="name">Name:</label>
             <input type="text" id="name" placeholder="Enter customer name">
         </div>
     
         <div>
-            <label for="name">Email:</label>
             <input type="email" id="email" placeholder="Enter customer email">
         </div>
     
-        <div class="input-wrapper">
-            <label for="name">Duration of Stay:</label>
-            <input type="number" id="duration" placeholder="Enter Duration of Stay" min="1">
-            <span>days</span>
-        </div>
-    
         <div>
-            <label for="name">Arrival Date:</label>
+            <input type="number" id="duration" placeholder="Enter Duration of Stay" min="1">
+        </div>
+
+        <div>
+            <select name="Select Room" id="rooms-list">
+                <option value="Select a Room">Select a Room</option>
+            </select>
+        </div>
+
+        <div>
             <input type="date" id="arrivedate" placeholder="Enter Arrival Date">
         </div>
     </div>
+
+    <div class="new-cus-button-div">
+        <input type="button" id="new-cus-button" class="new-cus-button-class" value="Add New Customer">
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>

@@ -1,4 +1,9 @@
 {
     "accommodation_name":"Something Hotel",
-    "customers": {}
+    "max_rooms":10,
+    "customers": {},
+    "rooms": [
+        {"id": "101", "name": "Room 101"},
+        {"id": "102", "name": "Room 102"}
+    ]
 }
