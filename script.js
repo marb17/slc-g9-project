@@ -1,56 +1,91 @@
-fetch('data.json') // Replace 'data.json' with the path to your JSON file
-    .then(response => response.json()) // Parse the response as JSON
-    .then(data => {
-        // Get the message from the JSON data
-        const accommodation_name = data.accommodation_name;
-        const avaliable_rooms = data.avaliable_rooms - (data.customers).length;
-
-        // Assign the text to the HTML element with id 'message'
-        document.getElementById('accommodation_name').textContent = accommodation_name;
-        document.getElementById('avaliable_rooms').textContent = avaliable_rooms;
-    })
-    .catch(error => console.error('Error fetching the JSON file:', error));
-
-// Fetch the JSON data
-fetch('data.json')
-    .then(response => response.json())
-    .then(data => {
-        function addCustomer(name, email, length_of_stay, date_arrival, cash, room) {
-            const newId = Object.keys(data.customers).length + 1;
-            const newCustomer = {
-                name: name,
-                email: email,
-                length_of_stay: length_of_stay,
-                date_arrival: date_arrival,
-                cash: cash,
-                room: room
-            };
-            data.customers[newId] = newCustomer;
-        }
-    })
-    .catch(error => console.error('Error fetching the JSON file:', error));
-
 document.addEventListener('DOMContentLoaded', () => {
-    const dropdown = document.getElementById('rooms-list');
-
-    // Fetch the JSON file
     fetch('data.json')
         .then(response => response.json())
         .then(data => {
-            // Iterate over each room in the 'rooms' array and create an option element
-            data.rooms.forEach(room => {
-                const option = document.createElement('option');
-                option.value = room.id; // Set the value to the room ID
-                option.textContent = room.name; // Set the display text to the room name
-                dropdown.appendChild(option); // Add the option to the dropdown
-            });
+            const accommodation_name = data.accommodation_name;
+            document.getElementById('accommodation_name').textContent = accommodation_name;
+
+            populateDropdown(data.rooms);
+            setupAddCustomerButton(data);
+            updateTotalCustomers(data.customers); // Update total customers on page load
         })
         .catch(error => console.error('Error fetching the JSON data:', error));
-     
-        dropdown.addEventListener('change', () => {
-        const defaultOption = dropdown.querySelector('option[value="Select a Room"]');
-        if (defaultOption) {
-            defaultOption.remove(); // Remove the default "Select a room" option
+
+    function populateDropdown(rooms) {
+        const dropdown = document.getElementById('rooms-list');
+        // Check if dropdown exists
+        if (dropdown) {
+            // Clear existing options (if any)
+            dropdown.innerHTML = '';
+
+            // Create and add the default "Select a Room" option
+            const defaultOption = document.createElement('option');
+            defaultOption.value = "";
+            defaultOption.textContent = "Select a Room";
+            dropdown.appendChild(defaultOption);
+
+            // Populate dropdown with room options
+            rooms.forEach(room => {
+                const option = document.createElement('option');
+                option.value = room.id; // Set the value to the room ID
+                option.textContent = room.name; // Set the text to the room name
+                dropdown.appendChild(option); // Add the option to the dropdown
+            });
+
+            // Add change event listener after population
+            dropdown.addEventListener('change', () => {
+                const selectedValue = dropdown.value;
+                // Log the selected value to check
+                console.log("Selected room:", selectedValue);
+            });
+        } else {
+            console.error('Dropdown element not found.');
         }
-    });
+    }
+
+    function setupAddCustomerButton(data) {
+        const addnewcusbut = document.getElementById('new-cus-button');
+        const input_name = document.getElementById('name');
+        const input_email = document.getElementById('email');
+        const input_duration = document.getElementById('duration');
+        const input_payment = document.getElementById('cash');
+        const input_room = document.getElementById('rooms-list');
+        const input_arrival = document.getElementById('arrivedate');
+
+        addnewcusbut.addEventListener('click', function () {
+            const newCustomer = {
+                name: input_name.value,
+                email: input_email.value,
+                length_of_stay: input_duration.value,
+                date_arrival: input_arrival.value,
+                cash: input_payment.value,
+                room: input_room.value
+            };
+
+            fetch('http://127.0.0.1:3000/add-customer', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(newCustomer)
+            })
+                .then(response => response.json())
+                .then(() => {
+                    // Update the customers data
+                    fetch('data.json')
+                        .then(response => response.json())
+                        .then(updatedData => {
+                            updateTotalCustomers(updatedData.customers);
+                            window.location.href = 'customer.html';
+                        })
+                        .catch(error => console.error('Error fetching updated data:', error));
+                })
+                .catch(error => console.error('Error adding customer:', error));
+        });
+    }
+
+    function updateTotalCustomers(customers) {
+        const totalCustomers = Object.keys(customers).length;
+        document.getElementById('tot-cus').textContent = `${totalCustomers}`;
+    }
 });

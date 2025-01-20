@@ -1,9 +1,32 @@
 {
-    "accommodation_name":"Something Hotel",
-    "max_rooms":10,
-    "customers": {},
-    "rooms": [
-        {"id": "101", "name": "Room 101"},
-        {"id": "102", "name": "Room 102"}
-    ]
+  "accommodation_name": "Something Hotel",
+  "max_rooms": 10,
+  "customers": {
+    "1": {
+      "name": "Marvell Christian Sutanto",
+      "email": "marvellchristiansutanto@gmail.com",
+      "length_of_stay": "1324",
+      "date_arrival": "275760-03-12",
+      "cash": "1234",
+      "room": "101"
+    },
+    "2": {
+      "name": "Bee Swarm Sorter",
+      "email": "marvell.sutanto@regentsschoolbali.sch.id",
+      "length_of_stay": "3241234",
+      "date_arrival": "4125-03-12",
+      "cash": "12341234",
+      "room": "102"
+    }
+  },
+  "rooms": [
+    {
+      "id": "101",
+      "name": "Room 101"
+    },
+    {
+      "id": "102",
+      "name": "Room 102"
+    }
+  ]
 }
