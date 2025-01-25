@@ -1,0 +1,43 @@
+:root {
+    --bgcolor: #27374D;
+    --bgmidcolor: #324868;
+    --midcolor: #526D82;
+    --acccolor: #9DB2BF;
+    --wcolor: #DDE6ED;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background-color: var(--bgcolor);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+#navbar-container {
+    background-color: var(--midcolor);
+    overflow: hidden;
+    margin: 1rem 1rem 1rem 1rem;
+}
+
+#navbar-container a {
+    padding: 1rem 1.5rem;
+
+    float: left;
+    text-align: center;
+    text-decoration: none;
+    color: var(--wcolor);
+    font-size: 2rem;
+}
+
+#navbar-container a:hover {
+    background-color: var(--acccolor);
+    color: var(--bgcolor);
+}
+
+.navbar-active {
+    background-color: var(--acccolor);
+    color: var(--bgcolor);
+}
