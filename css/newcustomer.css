@@ -1,0 +1,46 @@
+.form-input {
+    background-color: var(--midcolor);
+    display: flex;
+    justify-content: center;
+    margin: 1rem;
+    /* width: 23rem; */
+}
+
+.actual-form-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.actual-form-box input {
+    padding: 0.5rem 0.8rem;
+    width: 20rem;
+    height: 1.5rem;
+    border-radius: 0.5rem;
+    border-style: hidden;
+    margin-bottom: 0.5rem;
+}
+
+.actual-form-box label {
+    align-self: flex-start;
+    padding: 0.2rem 0rem; 
+    color: var(--wcolor);
+    font-size: 1.1rem;
+}
+
+.newcustomer-navbar {
+    background-color: var(--midcolor);
+    margin: 0rem 1rem 1rem 1rem;
+    padding: 0rem;
+    text-align: center;
+}
+
+.newcustomer-navbar a {
+    text-decoration: none;
+}
+
+.nav-div-new-cus {
+    padding: 1rem;
+    font-size: 1.2rem;
+    color: var(--wcolor);
+}
