@@ -9,14 +9,29 @@
     <link rel="stylesheet" href="../../css/newcustomer.css">
 </head>
 <body>
-    <div>
-        <form action="">
-            <input type="text" name="" id="">
-            <input type="email" name="" id="">
-            <input type="number" name="" id="">
-            <input type="number" name="" id="">
-            <input type="date" name="" id="">
+    <div class="form-input">
+        <form action="" class="actual-form-box">
+            <label for="name">Customer Name</label>
+            <input type="text" name="" id="name" placeholder="e.g. John Doe">
+
+            <label for="email">Customer Email</label>
+            <input type="email" name="" id="email" placeholder="e.g. johndoe@gmail.com">
+            
+            <label for="duration">Duration of Stay (days)</label>
+            <input type="number" name="" id="duration" placeholder="">
+
+            <label for="payment">Amount Paid (Rp)</label>
+            <input type="number" name="" id="payment" placeholder="">
+
+            <label for="arrival">Date of Arrival</label>
+            <input type="date" name="" id="arrival">
         </form>
     </div>
+
+    <nav class="newcustomer-navbar">
+        <a href="../../html/customers/customers.html">
+            <div class="nav-div-new-cus">Add New Customer</div>
+        </a>
+    </nav>
 </body>
 </html>
