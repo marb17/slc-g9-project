@@ -23,3 +23,18 @@ header {
     font-size: 1.2rem;
     color: var(--wcolor);
 }
+
+.customer-table {
+    width: 100%;
+}
+
+.customer-table-div {
+    background-color: var(--midcolor);
+    margin: 1rem;
+}
+
+.customer-table th {
+    color: var(--wcolor);
+    font-size: 1.5rem;
+    font-weight: 100;
+}
