@@ -26,6 +26,7 @@ header {
 
 .customer-table {
     width: 100%;
+    border-collapse: collapse;
 }
 
 .customer-table-div {
@@ -37,4 +38,22 @@ header {
     color: var(--wcolor);
     font-size: 1.5rem;
     font-weight: 100;
+}
+
+.customer-table td {
+    color: var(--wcolor);
+    text-align: center;
+}
+
+th {
+    padding: 0.4rem;
+}
+
+td {
+    padding: 0.2rem;
+}
+
+td, th {
+    border-bottom: 1px solid var(--acccolor);
+    /* border-right: 1px solid var(--acccolor); */
 }
