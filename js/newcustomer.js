@@ -1,10 +1,32 @@
-function getValues() {
-    const name = document.getElementById('name').value
-    const email = document.getElementById('email').value
-    const duration = document.getElementById('duration').value
-    const payment = document.getElementById('payment').value
-    const date = document.getElementById('arrival').value
-}
+document.getElementById("customer-form").addEventListener("submit", function(event) {
+    event.preventDefault()
+
+    const customerData = {
+        "id": Date.now().toString(),
+        "name": document.getElementById('name').value,
+        "room": document.getElementById('room').value,
+        "date": document.getElementById('arrival').value,
+        "email": document.getElementById('email').value,
+        "payment": document.getElementById('payment').value,
+        "duration": document.getElementById('duration').value
+    }
+
+    fetch("http://localhost:3000/add-customer", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(customerData)
+    })
+    .then(response => response.json())
+    .then(data => {
+        document.getElementById("message").textContent = data.message
+        window.location.href = "html/customers/customers.html"
+    })
+    .catch(error => {
+        console.error("Error:", error)
+        document.getElementById("message").textContent = "Failed to add customer"
+    })
+})
+
 
 function populateRoomNumberDropdown(data) {
     const elementRoom = document.getElementById("room")

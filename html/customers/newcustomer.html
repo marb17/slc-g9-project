@@ -16,7 +16,8 @@
     </nav>
     
     <div class="form-input">
-        <form action="" class="actual-form-box">
+        <form action="" class="actual-form-box" id="customer-form">
+            <!-- <div> -->
             <label for="name">Customer Name</label>
             <input type="text" name="" id="name" placeholder="e.g. John Doe">
 
@@ -24,25 +25,30 @@
             <input type="email" name="" id="email" placeholder="e.g. johndoe@gmail.com">
             
             <label for="duration">Duration of Stay (days)</label>
-            <input type="number" name="" id="duration" placeholder="">
+            <input type="number" name="" id="duration" placeholder="" min="1">
 
             <label for="payment">Amount Paid (Rp)</label>
-            <input type="number" name="" id="payment" placeholder="">
+            <input type="number" name="" id="payment" placeholder="" min="1">
 
             <label for="room">Room Number</label>
             <select name="room" id="room"></select>
 
             <label for="arrival">Date of Arrival</label>
             <input type="date" name="" id="arrival">
+            <!-- </div> -->
+
+            <div class="add-cus-div"><button type="submit" class="button-new-cus">Add New Customer</button></div>
         </form>
     </div>
 
-    <nav class="newcustomer-navbar">
+    <p id="message"></p>
+
+    <!-- <nav class="newcustomer-navbar">
         <a href="../../html/customers/customers.html">
             <div class="nav-div-new-cus">Add New Customer</div>
         </a>
-    </nav>
+    </nav> -->
 
-    <script src="../../js/newcustomer.js"></script>
+    <script src="../../js/newcustomer.js" defer></script>
 </body>
 </html>

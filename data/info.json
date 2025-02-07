@@ -1,13 +1,10 @@
 {
-    "name":"Giselle Odelya Riswantyo",
-    "maxrooms":5,
-
+    "name": "Giselle Odelya Riswantyo",
+    "maxrooms": 10,
     "customers": [
-       {"id":"1", "customerName":"Marvell Christian Sutanto", "roomNumber":"101", "arrivalDate":"09-10-2023", "email":"marvellchristiansutanto@gmail.com", "payment":"1000", "durationOfStay":"3"}, 
-       {"id":"1", "customerName":"Marvell Christian Sutanto", "roomNumber":"101", "arrivalDate":"09-10-2023", "email":"marvellchristiansutanto@gmail.com", "payment":"1000", "durationOfStay":"3"} 
     ],
-
     "rooms": [
-        "101", "102"
+        "101",
+        "102"
     ]
 }

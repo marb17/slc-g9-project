@@ -50,7 +50,27 @@
 }
 
 .nav-div-new-cus {
+    /* margin: 1rem 0rem 0rem 0rem; */
     padding: 1rem;
     font-size: 1.2rem;
     color: var(--wcolor);
+    /* background-color: var(--color); */
+    /* width: 100%; */
+}
+
+.button-new-cus {
+    margin: 1rem 0rem 0rem 0rem;
+    padding: 0.7rem;
+    font-size: 1.2rem;
+    color: var(--wcolor);
+    background-color: var(--bgmidcolor);
+    width: 100%;
+    border: 0rem none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+}
+
+.add-cus-div {
+    /* background-color: antiquewhite; */
+    width: 100%;
 }
