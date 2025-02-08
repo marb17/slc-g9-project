@@ -3,7 +3,6 @@
 //     result.setDate(result.getDate() + days)
 //     return result
 // }
-
 function checkIfDateIsBetween(date, days) {
     const arrivalDate = new Date(date); // Convert string to Date
     const EndDate = new Date(arrivalDate); // Copy the arrival date
