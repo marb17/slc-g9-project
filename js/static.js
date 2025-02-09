@@ -28,6 +28,17 @@ function checkIfDateIsBetween(date, days) {
     return false;
 }
 
+function checkIfDateIsInMonthYear(date) {
+    const today = new Date();
+    const arrivalDate = new Date(date);
+
+    if (today.getMonth() === arrivalDate.getMonth() && today.getFullYear() === arrivalDate.getFullYear()) {
+        return true;
+    }
+
+    return false;
+}
+
 fetch('../../data/info.json')
     .then(response => response.json())
     .then(info => {
@@ -47,13 +58,15 @@ fetch('../../data/info.json')
                 if (checkIfDateIsBetween(customer.date, Number(customer.duration))) {
                     customers_avaliable -= 1
                     tot_customers += 1
+                }
+                if (checkIfDateIsInMonthYear(customer.date)) {
                     revenue_month += Number(customer.payment)
                 }
             });
             
             document.getElementById('avaliable-rooms').textContent = customers_avaliable
             document.getElementById('total-customers').textContent = tot_customers
-            document.getElementById('revenue-month').textContent = "Rp " + revenue_month
+            document.getElementById('revenue-month').textContent = "Rp " + Number(revenue_month).toLocaleString('id-ID', { minimumFractionDigits: 2, maximumFractionDigits: 2 })
         } catch (error) {
             console.log("its a different page dw")   
         }
@@ -65,9 +78,15 @@ fetch('../../data/info.json')
             data.forEach(rowdata => {
                 const row = document.createElement("tr")
                 
-                Object.values(rowdata).forEach(value => {
+                Object.entries(rowdata).forEach(([key, value]) => {
                     const cell = document.createElement("td")
                     cell.textContent = value
+                    cell.id = key
+
+                    if (key === "payment") {
+                        cell.textContent = "Rp " + Number(value).toLocaleString('id-ID', { minimumFractionDigits: 2, maximumFractionDigits: 2 })
+                    }
+
                     row.appendChild(cell)
                 });
                 tableBody.appendChild(row)
