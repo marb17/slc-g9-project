@@ -28,6 +28,17 @@ function checkIfDateIsBetween(date, days) {
     return false;
 }
 
+function checkIfDateIsInMonthYear(date) {
+    const today = new Date();
+    const arrivalDate = new Date(date);
+
+    if (today.getMonth() === arrivalDate.getMonth() && today.getFullYear() === arrivalDate.getFullYear()) {
+        return true;
+    }
+
+    return false;
+}
+
 fetch('../../data/info.json')
     .then(response => response.json())
     .then(info => {
@@ -47,6 +58,8 @@ fetch('../../data/info.json')
                 if (checkIfDateIsBetween(customer.date, Number(customer.duration))) {
                     customers_avaliable -= 1
                     tot_customers += 1
+                }
+                if (checkIfDateIsInMonthYear(customer.date)) {
                     revenue_month += Number(customer.payment)
                 }
             });
