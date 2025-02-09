@@ -53,8 +53,8 @@ function populateRoomNumberDropdown(data) {
 
     data.forEach(roomname => {
        const option = document.createElement("option")
-        option.value = roomname
-        option.textContent = roomname
+        option.value = roomname.room
+        option.textContent = roomname.room
                 
         elementRoom.appendChild(option)
     });
@@ -66,6 +66,46 @@ fetch('../../data/info.json')
     .then(info => {
         populateRoomNumberDropdown(info.rooms)
     })
+
+let roomInfo = null; // Global variable to store room data
+
+// Function to fetch room data only once
+async function fetchRoomData() {
+    if (!roomInfo) {
+        const response = await fetch('../../data/info.json');
+        roomInfo = await response.json();
+    }
+}
+
+// Function to calculate payment
+async function calculatePayment() {
+    // Ensure data is loaded
+    await fetchRoomData();
+
+    const room = document.getElementById('room').value;
+    const roomData = roomInfo.rooms.find(r => r.room === room);
+
+    if (!roomData) {
+        console.warn("Room not found");
+        return;
+    }
+
+    const payment = roomData.rate;
+    const duration = parseFloat(document.getElementById('duration').value) || 0;
+    const total = payment * duration;
+
+    // Display total in an output element instead of modifying an input field
+    document.getElementById('payment').value = total.toFixed(2);
+    document.getElementById('rate').textContent = "Rate: " + Number(roomData.rate).toLocaleString('id-ID', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + " / night";
+}
+
+// Attach event listeners
+document.getElementById('room').addEventListener('change', calculatePayment);
+document.getElementById('duration').addEventListener('input', calculatePayment);
+
+// Fetch data when page loads
+fetchRoomData();
+
 
 function checkIfDateIsBetween(date, days) {
     const arrivalDate = new Date(date); // Convert string to Date

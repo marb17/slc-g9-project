@@ -74,3 +74,8 @@
     /* background-color: antiquewhite; */
     width: 100%;
 }
+
+#rate {
+    color: var(--wcolor);
+    align-self: flex-start;
+}
