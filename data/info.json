@@ -10,6 +10,51 @@
             "email": "sdfbsdf@asdf",
             "payment": "18000000.00",
             "duration": "12"
+        },
+        {
+            "id": "1739146635925",
+            "name": "Giselle Odelya Riswantyo",
+            "room": "102",
+            "date": "2025-02-14",
+            "email": "gishfish123@gmail.com",
+            "payment": "175000000.00",
+            "duration": "100"
+        },
+        {
+            "id": "1740315673493",
+            "name": "gsdfgsdfg",
+            "room": "101",
+            "date": "2025-02-27",
+            "email": "sdfgsdfg@gmail",
+            "payment": "31500000.00",
+            "duration": "21"
+        },
+        {
+            "id": "1740315704207",
+            "name": "asdfasdf",
+            "room": "103",
+            "date": "2025-02-25",
+            "email": "asdffDf@gmail.com",
+            "payment": "42000000.00",
+            "duration": "21"
+        },
+        {
+            "id": "1740316451313",
+            "name": "asdasdv",
+            "room": "107",
+            "date": "2025-02-23",
+            "email": "asdfsadf@gmail.com",
+            "payment": "63000000.00",
+            "duration": "21"
+        },
+        {
+            "id": "1740317067317",
+            "name": "ghjjgf",
+            "room": "108",
+            "date": "2025-02-23",
+            "email": "dhfghgfhfgh@gmail.com",
+            "payment": "76189750000.00",
+            "duration": "23443"
         }
     ],
     "rooms": [
@@ -20,6 +65,38 @@
         {
             "room": "102",
             "rate": "1750000"
+        },
+        {
+            "room": "103",
+            "rate": "2000000"
+        },
+        {
+            "room": "104",
+            "rate": "2250000"
+        },
+        {
+            "room": "105",
+            "rate": "2500000"
+        },
+        {
+            "room": "106",
+            "rate": "2750000"
+        },
+        {
+            "room": "107",
+            "rate": "3000000"
+        },
+        {
+            "room": "108",
+            "rate": "3250000"
+        },
+        {
+            "room": "109",
+            "rate": "3500000"
+        },
+        {
+            "room": "110",
+            "rate": "3750000"
         }
     ]
 }

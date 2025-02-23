@@ -57,3 +57,53 @@ td, th {
     border-bottom: 1px solid var(--acccolor);
     /* border-right: 1px solid var(--acccolor); */
 }
+
+h1 {
+    margin: 1rem 0rem -1rem 0rem;
+    color: var(--wcolor);
+    font-weight: 100;
+}
+
+#overview-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 1rem;
+    /* width: 100%; */
+    background-color: var(--midcolor);
+    overflow-x: auto;
+    /* overflow-y: auto; */
+    height: 100%;
+}
+
+svg {
+    width: 100%;
+    /* display: block; */
+    /* height: 100%; */
+    /* margin: 1rem; */
+    /* background: var(--midcolor); */
+    /* border: 1px solid #ccc; */
+}
+
+.bar {
+    fill: var(--acccolor);
+    stroke: #333;
+    stroke-width: 1px;
+    cursor: pointer;
+}
+
+.bar:hover {
+    fill: var(--wcolor);
+}
+
+.tooltip {
+    position: absolute;
+    visibility: hidden;
+    background: #333;
+    color: #fff;
+    padding: 1rem;
+    border-radius: 4px;
+    font-size: 14px;
+    /* visibility: hidden; */
+    transition: opacity 1s;
+}
