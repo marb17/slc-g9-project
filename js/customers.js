@@ -1,8 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
     const svg = d3.select("#room-booking-overview"),
-          margin = { top: 40, right: 20, bottom: 60, left: 50 }, // Increased bottom margin for labels
-          containerWidth = window.innerWidth - margin.left - margin.right - 50,
-          dateStep = 2; // Step interval for x-axis labels in days
+          margin = { top: 40, right: 30, bottom: 60, left: 50 }, // Increased bottom margin for labels
+          dateStep = 3; // Step interval for x-axis labels in days
 
     // Load booking data
     d3.json("../../data/info.json").then(data => {
@@ -26,9 +25,9 @@ document.addEventListener("DOMContentLoaded", () => {
         const maxDate = d3.max(bookings, d => d.endDate); // Latest end date
         const dayWidth = 20; // Fixed width per day (adjust as needed)
         const dateRange = (maxDate - minDate) / (1000 * 60 * 60 * 24); // Date range in days
-        const width = Math.max(containerWidth, dateRange * dayWidth); // Total width
+        const width = dateRange * dayWidth; // Total width based on date range
 
-        // Update SVG height
+        // Update SVG width and height
         svg.attr("width", width + margin.left + margin.right)
            .attr("height", height);
 
