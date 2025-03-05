@@ -83,5 +83,55 @@ document.addEventListener("DOMContentLoaded", () => {
                 tooltip.style("left", `${event.pageX + 10}px`).style("top", `${event.pageY - 10}px`);
             })
             .on("mouseout", () => tooltip.style("visibility", "hidden"));
+
+        // Populate table with customers
+        const tableBody = document.getElementById("customer-table-body");
+        data.customers.forEach(customer => {
+            const row = document.createElement("tr");
+
+            Object.entries(customer).forEach(([key, value]) => {
+                const cell = document.createElement("td");
+                cell.textContent = value;
+                row.appendChild(cell);
+            });
+
+            // Add actions cell
+            const actionsCell = document.createElement("td");
+            const editButton = document.createElement("button");
+            editButton.textContent = "Edit";
+            editButton.addEventListener("click", () => editCustomer(customer.id));
+            actionsCell.appendChild(editButton);
+
+            const deleteButton = document.createElement("button");
+            deleteButton.textContent = "Delete";
+            deleteButton.addEventListener("click", () => deleteCustomer(customer.id));
+            actionsCell.appendChild(deleteButton);
+
+            row.appendChild(actionsCell);
+            tableBody.appendChild(row);
+        });
     }).catch(error => console.error("Error loading data:", error));
 });
+
+function editCustomer(customerId) {
+    // Redirect to edit page with customer ID
+    window.location.href = `../../html/customers/editcustomer.html?id=${customerId}`;
+}
+
+function deleteCustomer(customerId) {
+    fetch(`http://localhost:3000/delete-customer`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ id: customerId })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            // Reload the page to reflect changes
+            window.location.reload();
+        } else {
+            alert("Failed to delete customer");
+        }
+    })
+    .catch(error => console.error("Error:", error));
+}
