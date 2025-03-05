@@ -1,60 +1,23 @@
 {
     "name": "Giselle Odelya Riswantyo",
-    "maxrooms": 10,
     "customers": [
         {
-            "id": "1739090747551",
-            "name": "sdffgsd",
+            "id": "1741166778874",
+            "name": "asdf",
             "room": "101",
-            "date": "2025-02-14",
-            "email": "sdfbsdf@asdf",
+            "date": "2025-03-03",
+            "email": "asdf@gmail.com",
             "payment": "18000000.00",
             "duration": "12"
         },
         {
-            "id": "1739146635925",
-            "name": "Giselle Odelya Riswantyo",
+            "id": "1741167870002",
+            "name": "sdaf",
             "room": "102",
-            "date": "2025-02-14",
-            "email": "gishfish123@gmail.com",
-            "payment": "175000000.00",
-            "duration": "100"
-        },
-        {
-            "id": "1740315673493",
-            "name": "gsdfgsdfg",
-            "room": "101",
-            "date": "2025-02-27",
-            "email": "sdfgsdfg@gmail",
-            "payment": "31500000.00",
-            "duration": "21"
-        },
-        {
-            "id": "1740315704207",
-            "name": "asdfasdf",
-            "room": "103",
-            "date": "2025-02-25",
-            "email": "asdffDf@gmail.com",
-            "payment": "42000000.00",
-            "duration": "21"
-        },
-        {
-            "id": "1740316451313",
-            "name": "asdasdv",
-            "room": "107",
-            "date": "2025-02-23",
-            "email": "asdfsadf@gmail.com",
-            "payment": "63000000.00",
-            "duration": "21"
-        },
-        {
-            "id": "1740317067317",
-            "name": "ghjjgf",
-            "room": "108",
-            "date": "2025-02-23",
-            "email": "dhfghgfhfgh@gmail.com",
-            "payment": "76189750000.00",
-            "duration": "23443"
+            "date": "2025-03-20",
+            "email": "asdf@g.n",
+            "payment": "213500000.00",
+            "duration": "122"
         }
     ],
     "rooms": [

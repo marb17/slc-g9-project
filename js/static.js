@@ -48,7 +48,14 @@ fetch('../../data/info.json')
         document.getElementById('hotel-name').textContent = hotelName
         
         // customers avaliable //
-        var customers_avaliable = info.maxrooms
+        // var customers_avaliable = info.maxrooms
+
+        var customers_avaliable = 0
+
+        info.rooms.forEach(room => {
+            customers_avaliable += 1
+        });
+
         var tot_customers = 0
         var revenue_month = 0
         
